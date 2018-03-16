@@ -12,5 +12,16 @@ YandexMarketPage yandexMarketPage;
 
     public void goToMarket(){
        yandexMarketPage.toMarketClick();
+       yandexMarketPage.compClick();
+       yandexMarketPage.noutClick();
+       yandexMarketPage.lenovoClick();
+       yandexMarketPage.hpClick();
+    }
+    public void Sample(String strPriceFrom,String strPriceTo){
+        yandexMarketPage.setPriceFrom(strPriceFrom);
+        yandexMarketPage.setPriceTo(strPriceTo);
+    }
+    public void countLaptop(){
+yandexMarketPage.count();
     }
 }
