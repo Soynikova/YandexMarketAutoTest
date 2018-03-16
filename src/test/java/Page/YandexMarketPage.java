@@ -31,6 +31,9 @@ public class YandexMarketPage {
     private WebElement priceFrom;
     @FindBy(xpath="//input[@id='glpriceto']")
     private WebElement priceTo;
+    @FindBy(xpath="//a[@class='link n-link_theme_blue i-bem link_js_inited']\n")
+    private WebElement One;
+
 
 
 
@@ -63,7 +66,12 @@ public  void hpClick(){
 
     public  int count(){
         return driver.findElements(By.xpath("//div[contains(@class, \"n-snippet-card2 i-bem \")]")).size();
-        //  System.out.print(count.getSize());
+
 
     }
+    public void setTextOne() {
+        One.getText();
+}
+
+
 }

@@ -23,5 +23,6 @@ YandexMarketPage yandexMarketPage;
     }
     public void countLaptop(){
 yandexMarketPage.count();
+yandexMarketPage.setTextOne();
     }
 }
