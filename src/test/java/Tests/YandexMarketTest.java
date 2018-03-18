@@ -1,6 +1,7 @@
 package Tests;
 
 import Step.YandexMarket;
+import io.qameta.allure.Step;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
@@ -11,8 +12,8 @@ public class YandexMarketTest{
     YandexMarket yandexMarket;
 
     public YandexMarketTest() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Tech\\Desktop\\chromedriver_win32\\chromedriver.exe");
-        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\Ekaterina\\Downloads\\chromedriver_win32\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\Tech\\Desktop\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Ekaterina\\Downloads\\chromedriver_win32\\chromedriver.exe");
         driver = new ChromeDriver();
         yandexMarket =new YandexMarket(driver);
 
@@ -24,10 +25,12 @@ public class YandexMarketTest{
         driver.get("https://yandex.ru/");
     }
     @Test
+    @Step
     public void Market() throws Throwable {
         browser();
         yandexMarket.goToMarket();
         yandexMarket.Sample("0","30000");
+        Thread.sleep(3000);
         yandexMarket.countLaptop();
 
     }

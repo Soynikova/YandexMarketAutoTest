@@ -31,11 +31,11 @@ public class YandexMarketPage {
     private WebElement priceFrom;
     @FindBy(xpath="//input[@id='glpriceto']")
     private WebElement priceTo;
-    @FindBy(xpath="//a[@class='link n-link_theme_blue i-bem link_js_inited']\n")
-    private WebElement One;
 
-
-
+    @FindBy(xpath="//input[@id='header-search']")
+    private WebElement inputSearch;
+    @FindBy(xpath="//span[@class='search2__button']//button[@role='button']")
+    private WebElement buttonSearch;
 
     public YandexMarketPage(WebDriver driver) {
         HtmlElementLoader.populatePageObject(this, driver);
@@ -66,12 +66,20 @@ public  void hpClick(){
 
     public  int count(){
         return driver.findElements(By.xpath("//div[contains(@class, \"n-snippet-card2 i-bem \")]")).size();
-
-
     }
-    public void setTextOne() {
-        One.getText();
-}
+//    @FindBy(xpath="//div[contains(@class, \"n-snippet-card2 i-bem \")][1]//a[@class='link n-link_theme_blue link_type_cpc i-bem link_js_inited']")
+    @FindBy(xpath="//div[@class='main']//div[1]/div[4]/div[1]/div[1]/a[1]")
+    private WebElement One;
+    public String setTextOne() {
+        String search=One.getText();
+        return search;
 
+}
+    public void setInputSearch(String search){
+        inputSearch.sendKeys(search);
+    }
+    public void buttonSearchClick(){
+        buttonSearch.click();
+    }
 
 }
