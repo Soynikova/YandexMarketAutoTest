@@ -1,6 +1,7 @@
 package Tests;
 
 import Step.YandexMarket;
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
@@ -17,15 +18,23 @@ public class YandexMarketTest{
         driver = new ChromeDriver();
         yandexMarket =new YandexMarket(driver);
 
+    }@Attachment
+    public String performedActions() {
+        return "tra-ta-ta";
     }
 
+
+
+    @Attachment(value = "Page screenshot", type = "image/png")
+    public byte[] saveScreenshot(byte[] screenShot) {
+        return screenShot;
+    }
     public void browser() throws Throwable {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://yandex.ru/");
     }
     @Test
-    @Step
     public void Market() throws Throwable {
         browser();
         yandexMarket.goToMarket();
